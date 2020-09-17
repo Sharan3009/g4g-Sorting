@@ -4,7 +4,7 @@
 * Main points in bubble sort
   - run outer loop from `0` to `n-1`
   - run inner loop from `1` to `n-i` OR `0` to `n-i-1`
-  - Even in the Best case is O(n2)
+  - Even the Best case complexity is O(n2)
   - Sorting is stable
   - Bubble sort is comparatively slower
 ```
@@ -64,7 +64,7 @@ public class Sorting {
   - Set a marker for the sorted section, after the furst element. Therefore, run outer loop from `1` to `n`
   - run inner loop from `i-1` to `0` and with additional check that the current inner loop element is greater than current outer loop element.
   - Best suited algorithm for small length arrays.
-  - Best case is O(N)
+  - Best case complexity is O(N)
   - It is stable sort
   - Number of swaps reduced than bubble sort
 ```
