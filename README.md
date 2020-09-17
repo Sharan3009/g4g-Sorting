@@ -3,7 +3,7 @@
 ### Bubble Sort
 * Main points in bubble sort
   - run outer loop from `0` to `n-1`
-  - run inner loop from `1` to `n-i`
+  - run inner loop from `1` to `n-i` OR `0` to `n-i-1`
 ```
 import java.util.*;
 
