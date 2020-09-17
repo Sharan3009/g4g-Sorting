@@ -122,6 +122,7 @@ public class Sorting {
 ```
 
 ### Merge Sort
+* This takes O(n) auxillary space.
 ```
 import java.util.*;
 
@@ -165,6 +166,58 @@ public class Sorting {
     }
     while(j<n2){
       arr[k++] = right[j++];
+    }
+  }
+}
+```
+* This takes O(1) auxillary space
+```
+import java.util.*;
+
+public class Sorting{
+  
+  public static void mergeSort(int arr[],int n){
+    int max = Integer.MIN_VALUE;
+    for(int i=0;i<n;i++){
+      if(arr[i]>max){
+        max = arr[i] + 1;
+      }
+    }
+    mergeSortRec(arr,0,n-1,max);
+  }
+  
+  public static void mergeSortRec(int arr[],int l,int r, int maxEle){
+    if(l<r){
+        int mid = l + (r-l)/2;
+        mergeSortRec(arr,l,mid,maxEle);
+        mergeSortRec(arr,mid+1,r,maxEle);
+        mergeO1(arr,l,mid,r,maxEle);
+    }
+  }
+  
+  public static void mergeO1(int arr[],int l, int m, int r, int maxEle){
+    int i = l;
+    int j = m+1;
+    int k = l;
+    while(i<=m && j<=r){
+      if(arr[i]%maxEle<=arr[j]%maxEle){
+        arr[k]+= (arr[i++]%maxEle)*maxEle;
+      } else {
+        arr[k]+= (arr[j++]%maxEle)*maxEle;
+      }
+      k++;
+    }
+    while(i<=m){
+      arr[k]+= (arr[i++]%maxEle)*maxEle;
+      k++;
+    }
+    while(j<=r){
+      arr[k]+= (arr[j++]%maxEle)*maxEle;
+      k++;
+    }
+    
+    for(int index=l;index<=r;index++){
+      arr[index]/=maxEle;
     }
   }
 }
