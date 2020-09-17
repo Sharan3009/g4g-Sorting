@@ -4,6 +4,7 @@
 * Main points in bubble sort
   - run outer loop from `0` to `n-1`
   - run inner loop from `1` to `n-i` OR `0` to `n-i-1`
+  - Event Best case is O(n2)
 ```
 import java.util.*;
 
@@ -21,6 +22,35 @@ public class Sorting {
         if(arr[j]<arr[j-1]){
           swap(arr,j,j-1);
         }
+      }
+    }
+  }
+}
+```
+* Optimized version of bubble sort, by adding a flag check if swap was happened in the iteration or not.
+  - In this best case is O(N)
+```
+import java.util.*;
+
+public class Sorting {
+  
+  public static void swap(int arr[],int i,int j){
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+  
+  public static void bubbleSortOptimized(int arr[],int n){
+    for(int i=0;i<n-1;i++){
+      boolean noSwap = true;
+      for(int j=1;j<n-i;j++){
+        if(arr[j]<arr[j-1]){
+          noSwap = false;
+          swap(arr,j,j-1);
+        }
+      }
+      if(noSwap){
+        break;
       }
     }
   }
