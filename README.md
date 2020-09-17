@@ -95,6 +95,7 @@ public class Sorting {
 
 ### Selection sort
 * Best case complexity for selection sort is O(n2)
+* unstable
 ```
 import java.util.*;
 
