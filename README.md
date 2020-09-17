@@ -223,3 +223,44 @@ public class Sorting{
   }
 }
 ```
+
+### Quick Sort
+* Quick sort using Lomuto partition
+```
+import java.util.*;
+
+public class Sorting{
+
+  public static void quickSortLomuto(int arr[],int l, int r){
+    if(l<r){
+      int p = lomutoPartition(arr,l,r);
+      quickSortLomuto(arr,l,p-1);
+      quickSortLomuto(arr,p+1,r);
+    }
+  }
+  
+  public static int lomutoPartition(int arr[],int l, int r){
+    return 1;
+  }
+}
+```
+
+* Quick sort using Hoare partition
+```
+import java.util.*;
+
+public class Sorting{
+
+  public static void quickSortHoare(int arr[],int l, int r){
+    if(l<r){
+      int p = lomutoPartition(arr,l,r);
+      quickSortLomuto(arr,l,p);
+      quickSortLomuto(arr,p+1,r);
+    }
+  }
+  
+  public static int hoarePartition(int arr[],int l, int r){
+    return 1;
+  }
+}
+```
