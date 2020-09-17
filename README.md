@@ -171,6 +171,7 @@ public class Sorting {
 }
 ```
 * This takes O(1) auxillary space
+* Precaution: multiplication may lead to memory overflow and will lead to unexpected result of big numbers.
 ```
 import java.util.*;
 
