@@ -30,7 +30,7 @@ public class Sorting {
 ### Insertion Sort
 * Main points in insertion sort
   - Set a marker for the sorted section, after the furst element. Therefore, run outer loop from `1` to `n`
-  - run inner loop from `i` to `1` with decreasing counter value `j--`
+  - run inner loop from `i-1` to `0` and with additional check that the current inner loop element is greater than current outer loop element.
 ```
 import java.util.*;
 
@@ -44,11 +44,14 @@ public class Sorting {
   
   public static void insertionSort(int arr[],int n){
     for(int i=1;i<n;i++){
-      for(int j=i;j>0;j--){
-        if(arr[j]<arr[j-1]){
-          swap(arr,j,j-1);
-        }
+      int key = arr[i];  // first element of unsorted array
+      int j = i-1; // last index of sorted array
+      while(j>=0 && arr[j]>key){
+        swap(arr,j,j+1);
+        j--; // go till the index where arr[j] is less than key
       }
+      // j is the key where value is less than the key, so it needs to be inserted at j+1.
+      arr[j+1] = key;
     }
   }
 }
