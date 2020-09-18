@@ -339,3 +339,15 @@ public class Sorting{
 }
 ```
 
+### Cycle Sort
+* O(n2)
+* Minimum number of memory writes
+```
+import java.util.*;
+
+public class Sorting{
+  public static void cycleSort(int arr[],int n){
+  }
+}
+```
+
