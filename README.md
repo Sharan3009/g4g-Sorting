@@ -231,6 +231,12 @@ import java.util.*;
 
 public class Sorting{
 
+  public static void swap(int arr[],int i, int j){
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+
   public static void quickSortLomuto(int arr[],int l, int r){
     if(l<r){
       int p = lomutoPartition(arr,l,r);
@@ -240,7 +246,16 @@ public class Sorting{
   }
   
   public static int lomutoPartition(int arr[],int l, int r){
-    return 1;
+    int pivot = arr[r];
+    int i = l-1;
+    for(int j=l;j<=r-1;j++){
+      if(arr[j]<=pivot){
+        i++;
+        swap(arr,i,j);
+      }
+    }
+    swap(arr,i+1,r);
+    return i+1;
   }
 }
 ```
@@ -251,16 +266,33 @@ import java.util.*;
 
 public class Sorting{
 
+  public static void swap(int arr[],int i, int j){
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
   public static void quickSortHoare(int arr[],int l, int r){
     if(l<r){
-      int p = lomutoPartition(arr,l,r);
-      quickSortLomuto(arr,l,p);
-      quickSortLomuto(arr,p+1,r);
+      int p = hoarePartition(arr,l,r);
+      quickSortHoare(arr,l,p);
+      quickSortHoare(arr,p+1,r);
     }
   }
   
   public static int hoarePartition(int arr[],int l, int r){
-    return 1;
+    int pivot = arr[l];
+    int i = l-1;
+    int j = r+1;
+    while(true){
+      do{
+        i++;
+      }while(arr[i]<pivot);
+      do{
+        j--;
+      }while(arr[j]>pivot);
+      if(i>=j) return j;
+      swap(arr,i,j);
+    }
   }
 }
 ```
