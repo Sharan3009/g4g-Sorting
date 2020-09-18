@@ -225,9 +225,8 @@ public class Sorting{
 ```
 
 ### Quick Sort
-* Quick sort using Lomuto partition
+* Quick sort using **Lomuto** partition
 * unstable
-* in place sorting
 ```
 import java.util.*;
 
@@ -262,9 +261,9 @@ public class Sorting{
 }
 ```
 
-* Quick sort using Hoare partition
+* Quick sort using **Hoare** partition
 * unstable
-* in place sorting
+* Much better than Lomuto partition
 ```
 import java.util.*;
 
@@ -301,7 +300,7 @@ public class Sorting{
 }
 ```
 
-* Quick sort using Naive partition
+* Quick sort using **Naive** partition
 * stable
 * needs O(n) auxillary space for sorting
 ```
