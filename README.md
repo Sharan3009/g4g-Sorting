@@ -226,6 +226,8 @@ public class Sorting{
 
 ### Quick Sort
 * Quick sort using Lomuto partition
+* unstable
+* in place sorting
 ```
 import java.util.*;
 
@@ -261,6 +263,8 @@ public class Sorting{
 ```
 
 * Quick sort using Hoare partition
+* unstable
+* in place sorting
 ```
 import java.util.*;
 
@@ -296,3 +300,43 @@ public class Sorting{
   }
 }
 ```
+
+* Quick sort using Naive partition
+* stable
+* needs O(n) auxillary space for sorting
+```
+import java.util.*;
+
+public class Sorting{
+
+  public static void quickSortNaive(int arr[],int l, int r){
+    if(l<r){
+      int p = naivePartition(arr,l,r);
+      quickSortNaive(arr,l,p-1);
+      quickSortNaive(arr,p+1,r);
+    }
+  }
+  
+  public static int naivePartition(int arr[],int l, int r){
+    int index = -1;
+    int temp[] = new int[r-l+1];
+    int pivot = arr[r];
+    for(int i=l;i<=r;i++){
+      if(arr[i]<=pivot){
+        temp[++index] = arr[i];
+      }
+    }
+    int returnIndex = l + index;
+    for(int i=l;i<=r;i++){
+      if(arr[i]>pivot){
+        temp[++index] = arr[i];
+      }
+    }
+    for(int i=l;i<=r;i++){
+      arr[i]=temp[i-l];
+    }
+    return returnIndex;
+  }
+}
+```
+
