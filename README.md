@@ -380,6 +380,7 @@ public class Sorting{
 
 ### Counting Sort
 * O(n+k) both time and space complexity
+* Stable sort
 * Not a comparison based method
 ```
 import java.util.*;
@@ -399,6 +400,7 @@ public class Sorting{
       count[i]+=count[i-1];
     }
     int output[] = new int[n];
+    // You can also sorting by running the loop from 0 to n-1, but running loop in reverse makes it stable sort
     for(int i=n-1;i>=0;i--){
       output[--count[arr[i]]] = arr[i];
     }
