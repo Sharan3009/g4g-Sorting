@@ -455,3 +455,43 @@ public class Sorting{
   }
 }
 ```
+
+### Bucket Sort
+* O(n)
+* For uniformily distributed positive numbers only
+```
+import java.util.*;
+
+public class Sorting{
+
+  public static void bucketSort(int arr[],int n,int k){
+    int max = 0;
+    for(int i=0;i<n;i++){
+      if(arr[i]>max){
+        max = arr[i];
+      }
+    }
+    max++;
+    
+    ArrayList<ArrayList<Integer>> bkt = new ArrayList<>();
+    for(int i=0;i<k;i++){
+        bkt.add(new ArrayList<Integer>());
+    }
+    for(int i=0;i<n;i++){
+      int bi = (k*arr[i])/max;
+      bkt.get(bi).add(arr[i]);
+    }
+    
+    for(int i=0;i<k;i++){
+      Collections.sort(bkt.get(i));
+    }
+    
+    int index = 0;
+    for(int i=0;i<k;i++){
+      for(int j=0;j<bkt.get(i).size();j++){
+        arr[index++] = bkt.get(i).get(j);
+      }
+    }
+  }
+}
+```
