@@ -379,6 +379,8 @@ public class Sorting{
 ```
 
 ### Counting Sort
+* O(n+k) both time and space complexity
+* Not a comparison based method
 ```
 import java.util.*;
 
