@@ -346,7 +346,34 @@ public class Sorting{
 import java.util.*;
 
 public class Sorting{
+
+  public static int replace(int arr[],int index, int num){
+      int temp = arr[index];
+      arr[index] = num;
+      return temp;
+   }
+   
   public static void cycleSort(int arr[],int n){
+    for(int cs=0;cs<n-1;cs++){
+      int pos = cs;
+      int temp = arr[pos];
+      for(int i=cs+1;i<n;i++){
+        if(arr[i]<temp){
+          pos++;
+        }
+      }
+      temp = replace(arr,pos,temp);
+      while(pos!=cs){
+        // this is repeated piece of code
+        pos = cs;
+        for(int i=cs+1;i<n;i++){
+          if(arr[i]<temp){
+            pos++;
+          }
+        }
+        temp = replace(arr,pos,temp);
+      }
+    }
   }
 }
 ```
