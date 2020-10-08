@@ -93,6 +93,32 @@ public class Sorting {
 }
 ```
 
+### Shell Sort
+```
+import java.util.*;
+public class Sorting{
+
+  public static void swap(int arr[],int i,int j){
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+  
+  public static void shellSort(int arr[],int n){
+    for(int gap=n/2;gap>=1;gap/=2){
+      for(int j=gap;j<n;j++){
+        for(int i=j-gap;i>=0;i-=gap){
+          if(arr[i]>arr[i+gap]){
+            swap(arr,i,i+gap);
+          } else {
+            break;
+          }
+        }
+      }
+    }
+  }
+}
+```
 ### Selection Sort
 * Best case complexity for selection sort is O(n2)
 * unstable
