@@ -94,6 +94,7 @@ public class Sorting {
 ```
 
 ### Shell Sort
+* Time complexity is O(n2)
 ```
 import java.util.*;
 public class Sorting{
