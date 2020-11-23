@@ -252,7 +252,8 @@ public class Sorting{
 }
 ```
 
-### Quick Sort
+### Quick Sort'
+* On average, time complexity is O(nlogn) but in worst case can go upto O(n2)
 * Quick sort using **Lomuto** partition
 * unstable
 ```
